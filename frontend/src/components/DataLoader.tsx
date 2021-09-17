@@ -6,7 +6,7 @@ export const DataLoader: FunctionComponent = () => {
     const [data, setData] = React.useState('');
     React.useEffect(() => {
         if (shouldLoad) {
-            fetch('/api/getdata').then((response) => response.text()).then(setData);
+            fetch('/api/people').then((response) => response.text()).then(setData);
         }
     }, [shouldLoad]);
 

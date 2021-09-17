@@ -1,5 +1,5 @@
 import * as path from 'path';
-import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   entry: path.resolve(__dirname, './src/index.tsx'),

@@ -1,13 +1,18 @@
 import * as path from "path";
-import * as express from "express";
+import express from "express";
+import { people } from "./api";
 
 (async function main() {
   const app = express();
   const frontendDist = path.join(__dirname, "..", "..", "frontend", "dist");
 
+  app.use('/api/people', people);
+
   if (process.env.WEBPACK_DEV) {
-    const webpack = await import("webpack");
-    const webpackMiddleware = await import("webpack-dev-middleware");
+    const { default: webpack } = await import("webpack");
+    const { default: webpackMiddleware } = await import(
+      "webpack-dev-middleware"
+    );
     const { default: config } = await import("../../frontend/webpack.config");
 
     app.use(
@@ -29,10 +34,6 @@ import * as express from "express";
       res.sendFile(index);
     });
   }
-
-  app.use("/api/getdata", (req, res) => {
-      res.status(200).send('hello world!')
-  });
 
   app.listen(8080, () => console.log("listening!"));
 })().catch(console.error);
