@@ -17,7 +17,7 @@ export function PeopleList() {
     getPeople()
       .then(setPeople)
       .finally(() => setIsLoading(false));
-  });
+  }, []);
 
-  return <DataGrid editMode="row" autoHeight={true} columns={columns} rows={people} />;
+  return <DataGrid hideFooterPagination editMode="row" autoHeight={true} columns={columns} rows={people} />;
 }

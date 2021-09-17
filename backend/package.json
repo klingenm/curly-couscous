@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "test": "jest"
+    "test": "jest",
+    "start": "WEBPACK_DEV=true npx nodemon src/index.ts"
   },
   "author": "",
   "license": "ISC",
