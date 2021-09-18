@@ -9,7 +9,7 @@ abstract class DtoBase {
 export type Gender = "male" | "female";
 export type PersonInput = Omit<Person, "fromPlain" | "toPlain">;
 export class Person extends DtoBase {
-  id: string;
+  id?: string;
   name: string;
   birthYear: string;
   mass: number;

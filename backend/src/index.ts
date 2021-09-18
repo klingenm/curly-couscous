@@ -4,6 +4,7 @@ import { people } from "./api";
 
 (async function main() {
   const app = express();
+  app.use(express.json());
   const frontendDist = path.join(__dirname, "..", "..", "frontend", "dist");
 
   app.use('/api/people', people);
